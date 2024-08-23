@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e88f708c-cd17-48ad-a6a2-e5b02f63b247" name="Changes" comment="Изменён выбор дня в календаре, дополнены комментарии">
+    <list default="true" id="e88f708c-cd17-48ad-a6a2-e5b02f63b247" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/1.png" beforeDir="false" afterPath="$PROJECT_DIR$/1.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/automation_practice_form.py" beforeDir="false" afterPath="$PROJECT_DIR$/automation_practice_form.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/base_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/base_page.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test_form.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_form.py" afterDir="false" />
@@ -40,15 +42,12 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python tests.pytest in test_form.py.executor": "Run",
-    "Python.automation_practice_form.executor": "Run",
-    "Python.base_page.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <module name="sdet-main" />
@@ -169,19 +168,6 @@
       <option name="presentableId" value="Default" />
       <updated>1724340405072</updated>
     </task>
-    <task id="LOCAL-00001" summary="Изменён выбор дня в календаре, дополнены комментарии">
-      <option name="closed" value="true" />
-      <created>1724416835333</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1724416835333</updated>
-    </task>
-    <option name="localTasksCounter" value="2" />
     <servers />
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="Изменён выбор дня в календаре, дополнены комментарии" />
-    <option name="LAST_COMMIT_MESSAGE" value="Изменён выбор дня в календаре, дополнены комментарии" />
   </component>
 </project>
