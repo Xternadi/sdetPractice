@@ -20,7 +20,7 @@ class BasePage:
         select = Select(select_object)
         select.select_by_value(value)
 
-    def set_object_click(self, locator):
+    def object_click(self, locator):
         element = self.driver.find_element(*locator)
         element.click()
 

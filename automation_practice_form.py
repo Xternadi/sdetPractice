@@ -14,8 +14,8 @@ class Locators:
     date = (By.ID, "dateOfBirthInput")
     month = (By.CSS_SELECTOR, '.react-datepicker__month-select')
     year = (By.CSS_SELECTOR, '.react-datepicker__year-select')
-    day = (By.CSS_SELECTOR, '.react-datepicker__day--017')
-    #day = (By.XPATH, f"//*[contains(text(), '{day}')]")
+    #day = (By.CSS_SELECTOR, '.react-datepicker__day--017')
+    day = lambda x: (By.XPATH, f'//div[contains(@class, "react-datepicker__day--{x:03d}") and not(@class="react-datepicker__day--outside-month")]')
     subjects = (By.ID, "subjectsInput")
     subjects_value = (By.XPATH, "//*[contains(text(), 'English')]")
     picture = (By.CSS_SELECTOR, 'input[type="file"]')
@@ -44,11 +44,11 @@ class AutomatonPracticeForm(BasePage):
     def set_gender(self, word):
         with allure.step('gender input'):
             if word == '1':
-                self.set_object_click(Locators.gender_male)
+                self.object_click(Locators.gender_male)
             elif word == '2':
-                self.set_object_click(Locators.gender_female)
+                self.object_click(Locators.gender_female)
             else:
-                self.set_object_click(Locators.gender_other)
+                self.object_click(Locators.gender_other)
 
     def set_mobile(self, mobile):
         with allure.step('mobile input'):
@@ -56,7 +56,7 @@ class AutomatonPracticeForm(BasePage):
 
     def open_calendar(self):
         with allure.step('open calendar'):
-            self.set_object_click(Locators.date)
+            self.object_click(Locators.date)
             #self.input_clear(Locators.date)
 
     def set_month(self, month):
@@ -67,14 +67,15 @@ class AutomatonPracticeForm(BasePage):
         with allure.step('year input'):
             self.set_select(Locators.year, year)
 
-    def set_day(self):
+    def set_day(self, day):
         with allure.step('day input'):
-            self.set_object_click(Locators.day)
+            #self.set_object_click(Locators.day)
+            self.object_click(Locators.day(day))
 
     def set_subject(self, word):
         with allure.step('subject input'):
             self.set_text(Locators.subjects, word)
-            self.set_object_click(Locators.subjects_value)
+            self.object_click(Locators.subjects_value)
 
     def set_picture(self, path):
         with allure.step('image input'):
@@ -86,15 +87,15 @@ class AutomatonPracticeForm(BasePage):
 
     def set_state(self):
         with allure.step('state input'):
-            self.set_object_click(Locators.state)
-            self.set_object_click(Locators.state_value)
+            self.object_click(Locators.state)
+            self.object_click(Locators.state_value)
 
     def set_city(self):
         with allure.step('city input'):
-            self.set_object_click(Locators.city)
-            self.set_object_click(Locators.city_value)
+            self.object_click(Locators.city)
+            self.object_click(Locators.city_value)
 
     def click_submit(self):
         with allure.step('submit button click'):
-            self.set_object_click(Locators.submit_button)
+            self.object_click(Locators.submit_button)
 
