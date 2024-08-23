@@ -1,7 +1,7 @@
-from base_page import BasePage
 from selenium.webdriver.common.by import By
-from time import sleep
-import allure
+
+from base_page import BasePage
+
 
 class Locators:
     first_name = (By.ID, "firstName")
@@ -14,8 +14,9 @@ class Locators:
     date = (By.ID, "dateOfBirthInput")
     month = (By.CSS_SELECTOR, '.react-datepicker__month-select')
     year = (By.CSS_SELECTOR, '.react-datepicker__year-select')
-    #day = (By.CSS_SELECTOR, '.react-datepicker__day--017')
-    day = lambda x: (By.XPATH, f'//div[contains(@class, "react-datepicker__day--{x:03d}") and not(@class="react-datepicker__day--outside-month")]')
+    day = lambda x: (By.XPATH,
+                     f'//div[contains(@class, "react-datepicker__day--{x:03d}")\
+                      and not(@class="react-datepicker__day'f'--outside-month")]')
     subjects = (By.ID, "subjectsInput")
     subjects_value = (By.XPATH, "//*[contains(text(), 'English')]")
     picture = (By.CSS_SELECTOR, 'input[type="file"]')
@@ -25,77 +26,94 @@ class Locators:
     city = (By.ID, "city")
     city_value = (By.XPATH, "//*[contains(text(), 'Delhi')]")
     submit_button = (By.ID, "submit")
+    table_string1 = (By.XPATH, "//*/table/tbody/tr[1]/td[2]")
+    table_string2 = (By.XPATH, "//*/table/tbody/tr[2]/td[2]")
+    table_string3 = (By.XPATH, "//*/table/tbody/tr[3]/td[2]")
+    table_string4 = (By.XPATH, "//*/table/tbody/tr[4]/td[2]")
+    table_string5 = (By.XPATH, "//*/table/tbody/tr[5]/td[2]")
+    table_string6 = (By.XPATH, "//*/table/tbody/tr[6]/td[2]")
+    table_string7 = (By.XPATH, "//*/table/tbody/tr[7]/td[2]")
+    table_string8 = (By.XPATH, "//*/table/tbody/tr[8]/td[2]")
+    table_string9 = (By.XPATH, "//*/table/tbody/tr[9]/td[2]")
+    table_string10 = (By.XPATH, "//*/table/tbody/tr[10]/td[2]")
 
 
 class AutomatonPracticeForm(BasePage):
 
     def set_firstname(self, firstname):
-        with allure.step('first name input'):
-            self.set_text(Locators.first_name, firstname)
+        self.set_text(Locators.first_name, firstname)
 
     def set_lastname(self, lastname):
-        with allure.step('last name input'):
-            self.set_text(Locators.last_name, lastname)
+        self.set_text(Locators.last_name, lastname)
 
     def set_email(self, email):
-        with allure.step('email name input'):
-            self.set_text(Locators.email, email)
+        self.set_text(Locators.email, email)
 
     def set_gender(self, word):
-        with allure.step('gender input'):
-            if word == '1':
-                self.object_click(Locators.gender_male)
-            elif word == '2':
-                self.object_click(Locators.gender_female)
-            else:
-                self.object_click(Locators.gender_other)
+        if word == '1':
+            self.object_click(Locators.gender_male)
+        elif word == '2':
+            self.object_click(Locators.gender_female)
+        else:
+            self.object_click(Locators.gender_other)
 
     def set_mobile(self, mobile):
-        with allure.step('mobile input'):
-            self.set_text(Locators.mobile, mobile)
+        self.set_text(Locators.mobile, mobile)
 
     def open_calendar(self):
-        with allure.step('open calendar'):
-            self.object_click(Locators.date)
-            #self.input_clear(Locators.date)
+        self.object_click(Locators.date)
 
     def set_month(self, month):
-        with allure.step('month input'):
-            self.set_select(Locators.month, month)
+        self.set_value_for_select(Locators.month, month)
 
     def set_year(self, year):
-        with allure.step('year input'):
-            self.set_select(Locators.year, year)
+        self.set_value_for_select(Locators.year, year)
 
     def set_day(self, day):
-        with allure.step('day input'):
-            #self.set_object_click(Locators.day)
-            self.object_click(Locators.day(day))
+        self.object_click(Locators.day(day))
 
     def set_subject(self, word):
-        with allure.step('subject input'):
-            self.set_text(Locators.subjects, word)
-            self.object_click(Locators.subjects_value)
+        self.set_text(Locators.subjects, word)
+        self.object_click(Locators.subjects_value)
 
-    def set_picture(self, path):
-        with allure.step('image input'):
-            self.set_text(Locators.picture, path)
+    def choose_image(self, path):
+        self.set_text(Locators.picture, path)
 
     def set_address(self, address):
-        with allure.step('address input'):
-            self.set_text(Locators.address, address)
+        self.set_text(Locators.address, address)
 
     def set_state(self):
-        with allure.step('state input'):
-            self.object_click(Locators.state)
-            self.object_click(Locators.state_value)
+        self.object_click(Locators.state)
+        self.object_click(Locators.state_value)
 
     def set_city(self):
-        with allure.step('city input'):
-            self.object_click(Locators.city)
-            self.object_click(Locators.city_value)
+        self.object_click(Locators.city)
+        self.object_click(Locators.city_value)
 
     def click_submit(self):
-        with allure.step('submit button click'):
-            self.object_click(Locators.submit_button)
+        self.object_click(Locators.submit_button)
 
+    def check_title(self, browser):
+        element = browser.find_element(By.ID, "example-modal-sizes-title-lg")
+        if not element:
+            return False
+        else:
+            return True
+
+    def check_result(self, first_and_last_name_check, email, gender_check, phone, date_check, subject_check,
+                     Hobbies_check, image_check, address, state_snd_city_check):
+        if (
+                self.verification(Locators.table_string1, first_and_last_name_check) == True and
+                self.verification(Locators.table_string2, email) == True and
+                self.verification(Locators.table_string3, gender_check) == True and
+                self.verification(Locators.table_string4, phone) == True and
+                self.verification(Locators.table_string5, date_check) == True and
+                self.verification(Locators.table_string6, subject_check) == True and
+                self.verification(Locators.table_string7, Hobbies_check) == True and
+                self.verification(Locators.table_string8, image_check) == True and
+                self.verification(Locators.table_string9, address) == True and
+                self.verification(Locators.table_string10, state_snd_city_check) == True
+        ):
+            return True
+        else:
+            return False
