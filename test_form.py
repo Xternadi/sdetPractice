@@ -73,6 +73,3 @@ class Test:
                                           subject_check, Hobbies_check, image_check, address, state_snd_city_check) == True
         with allure.step('browser close'):
             browser.quit()
-
-# pytest -s -v --alluredir results
-# allure serve results
